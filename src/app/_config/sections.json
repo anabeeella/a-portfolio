@@ -1,0 +1,90 @@
+{
+  "sections": [
+    {
+      "id": "#0",
+      "title": "Control Center",
+      "tooltip": "",
+      "description": "Welcome to the A-Portfolio. This is a collection of my projects, experiences, and thoughts.",
+      "icon": "FaHome",
+      "tags": "",
+      "link": "/home"
+    },
+    {
+      "id": "#1",
+      "title": "Mission Briefings",
+      "tooltip": "",
+      "description": "Completed operations and notable deployments. Strategic breakdowns of design missions, visual intelligence, and tactical outcomes.",
+      "icon": "FaProjectDiagram",
+      "tags": ["Projects", "CaseStudies"],
+      "link": "/projects"
+    },
+    {
+      "id": "#2",
+      "title": "Field Ops",
+      "tooltip": "",
+      "description": "Career records, deployed skillsets, and tools of choice. All missions logged and categorized by timeline and complexity.",
+      "icon": "FaLaptopCode",
+      "tags": ["Experience", "Skills", "Tools"],
+      "link": "/experience"
+    },
+    {
+      "id": "#3",
+      "title": "Test Zone",
+      "tooltip": "",
+      "description": "A sandbox for risky tactics, experimental prototypes, playful code, and UI chaos.",
+      "icon": "FaGamepad",
+      "tags": ["Games", "Experiments"],
+      "link": "/playground"
+    },
+    {
+      "id": "#4",
+      "title": "Field Notes",
+      "tooltip": "",
+      "description": "Frontline insights and unofficial records. Reflections, UX tactics, and useful materials for fellow operatives.",
+      "icon": "FaBook",
+      "tags": ["Blog", "Resources"],
+      "link": "/blog",
+      "subsections": [
+        {
+          "id": "#4.1",
+          "description": "Latest articles and insights about design, development, and technology.",
+          "title": "Posts",
+          "icon": "FaBook",
+          "link": "/posts"
+        },
+        {
+          "id": "#4.2",
+          "description": "Curated tools, libraries, and materials for designers and developers.",
+          "title": "Resources",
+          "icon": "FaBook",
+          "link": "/resources"
+        }, 
+        {
+          "id": "#4.3",
+          "description": "Collection of inspiring projects, designs, and creative works.",
+          "title": "Inspiration",
+          "icon": "FaBook",
+          "link": "/inspiration"
+        }
+      ]
+    },
+    {
+      "id": "#5",
+      "title": "ID Archive",
+      "tooltip": "",
+      "description": "Identity dossier: profile data, unofficial details, and off-duty interests. Access Level: Cleared",
+      "icon": "FaUser",
+      "tags": ["About", "FunFacts", "Hobbies"],
+      "link": "/about"
+    },
+    {
+      "id": "#6",
+      "title": "Contact",
+      "tooltip": "",
+      "description": "Direct contact with the operator. Send a message, request a mission, or just say hi.",
+      "icon": "FaEnvelope",
+      "tags": ["Contact"],
+      "link": "/contact"
+    } 
+  ]
+} 
