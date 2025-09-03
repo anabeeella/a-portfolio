@@ -5,7 +5,7 @@ import matter from 'gray-matter';
 export function getMarkdownContent(filename) {
   const filePath = path.join(
     process.cwd(),
-    'src/app/_content',
+    'src/app/projects/projects',
     `${filename}.md`
   );
   const fileContent = fs.readFileSync(filePath, 'utf-8');

@@ -10,7 +10,9 @@ import {
   Tag,
   Flex,
   Box,
+  Badge,
 } from '@chakra-ui/react';
+import { useRouter } from 'next/navigation';
 
 export default function ProjectCard({
   id,
@@ -25,9 +27,27 @@ export default function ProjectCard({
   isComingSoon,
   link,
 }) {
+  const router = useRouter();
+
+  // Function to convert project name to URL-friendly slug
+  const createSlug = projectName => {
+    return projectName
+      .toLowerCase()
+      .replace(/\s+/g, '-') // Replace spaces with hyphens
+      .replace(/[^a-z0-9-]/g, '') // Remove special characters except hyphens
+      .replace(/-+/g, '-') // Replace multiple hyphens with single hyphen
+      .replace(/^-|-$/g, ''); // Remove leading/trailing hyphens
+  };
+
+  const handleClick = () => {
+    if (!isComingSoon) {
+      const slug = createSlug(name);
+      router.push(`/projects/${slug}`);
+    }
+  };
   return (
     <Card
-      onClick={() => !isComingSoon && window.open(link, '_blank')}
+      onClick={handleClick}
       cursor={isComingSoon ? 'default' : 'pointer'}
       overflow="hidden"
       key={id}
@@ -43,7 +63,7 @@ export default function ProjectCard({
           ? {
               borderColor: 'whiteAlpha.500',
               '& .project-image': {
-                filter: 'sepia(0%)',
+                filter: 'none',
               },
             }
           : {}
@@ -60,7 +80,6 @@ export default function ProjectCard({
             maxHeight="400px"
             height="100%"
             width="100%"
-            filter="sepia(50%)"
           />
         )}
         {isComingSoon && (
@@ -76,15 +95,17 @@ export default function ProjectCard({
         <Flex position="absolute" bottom={2} right={2} gap={2}>
           {tags &&
             tags.map(tag => (
-              <Tag
-                key={tag}
-                scheme="earth"
+              <Badge
+                colorScheme="earth"
+                variant="subtle"
+                px={3}
+                py={1}
+                fontSize="sm"
                 fontFamily="mono"
-                fontSize="xs"
-                color="earth.700"
+                key={tag}
               >
                 {tag}
-              </Tag>
+              </Badge>
             ))}
         </Flex>
       </Box>
@@ -102,28 +123,35 @@ export default function ProjectCard({
         >
           {name}
         </Heading>
-        <Box className="font-mono text-sm color-earth-500">
-          <Text mb={1}>
-            Role: <span className="text-earth-200">{role}</span>
-          </Text>
-          {client && (
-            <Text>
-              Client: <span className="text-earth-200">{client}</span>
-            </Text>
-          )}
-        </Box>
-      </CardHeader>
-      <CardBody fontSize="sm" color="earth.400">
         {isComingSoon && (
-          <Text className="text-earth-100 text-sm font-mono leading-relaxed text-center">
+          <Text
+            className="text-sm font-mono leading-relaxed text-center"
+            color="earth.300"
+          >
             Coming Soon
           </Text>
         )}
         {!isComingSoon && (
-          <Text className="text-earth-100 text-md leading-relaxed">
+          <Text className="text-md leading-relaxed" color="earth.200">
             {description}
           </Text>
         )}
+      </CardHeader>
+      <CardBody fontSize="sm">
+        <Box
+          className="font-mono text-sm"
+          color="earth.300"
+          textTransform="uppercase"
+        >
+          <Text mb={1}>
+            Role: <span>{role}</span>
+          </Text>
+          {client && (
+            <Text>
+              Client: <span>{client}</span>
+            </Text>
+          )}
+        </Box>
       </CardBody>
     </Card>
   );
