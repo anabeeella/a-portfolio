@@ -1,46 +1,46 @@
 import React from 'react';
-import {
-  Box,
-  Flex,
-  Link,
-  Modal,
-  ModalHeader,
-  ModalOverlay,
-  ModalContent,
-  ModalBody,
-  ModalCloseButton,
-  useDisclosure,
-  Text,
-} from '@chakra-ui/react';
+import { Box, Flex, Link, Text, Icon, HStack } from '@chakra-ui/react';
 import NextLink from 'next/link';
-import { FaInfoCircle } from 'react-icons/fa';
-import sections from '@/app/_config/sections.json';
+import { FaSun, FaChevronRight } from 'react-icons/fa';
 import { usePathname } from 'next/navigation';
 
 export default function Header() {
-  const { isOpen: isModalOpen, onOpen, onClose } = useDisclosure();
   const pathname = usePathname();
-  const currentPage =
-    sections.sections.find(section => section.link === pathname) ||
-    sections.sections[0];
 
-  // Get current section and subsection titles
-  const getCurrentTitle = () => {
+  // Get breadcrumb items
+  const getBreadcrumbItems = () => {
     const pathParts = pathname.split('/').filter(Boolean);
-    if (pathParts.length > 1) {
-      const section = sections.sections.find(
-        s => s.link === `/${pathParts[0]}`
-      );
-      if (section?.subsections) {
-        const subsection = section.subsections.find(
-          sub => sub.link === `/${pathParts[1]}`
-        );
-        if (subsection) {
-          return `${subsection.link}`;
-        }
-      }
+    const items = [];
+
+    // If we're at /home, just show Home
+    if (pathname === '/home') {
+      items.push({
+        label: 'Home',
+        href: '/home',
+        isActive: true,
+      });
+      return items;
     }
-    return currentPage.link;
+
+    // Always start with Home
+    items.push({
+      label: 'Home',
+      href: '/home',
+      isActive: false,
+    });
+
+    // Build path progressively
+    let currentPath = '';
+    pathParts.forEach((part, index) => {
+      currentPath += `/${part}`;
+      items.push({
+        label: part, // Show only the part name, not the full path
+        href: currentPath,
+        isActive: pathname === currentPath,
+      });
+    });
+
+    return items;
   };
 
   return (
@@ -61,44 +61,42 @@ export default function Header() {
           </Link>
         </Box>
         <Box className="hidden md:block">
-          <Text className="font-mono">{getCurrentTitle()}</Text>
+          <HStack spacing={2} className="font-mono text-sm">
+            {getBreadcrumbItems().map((item, index) => (
+              <React.Fragment key={item.href}>
+                {index > 0 && (
+                  <Icon as={FaChevronRight} w={3} h={3} color="earth.400" />
+                )}
+                <Link
+                  as={NextLink}
+                  href={item.href}
+                  color={item.isActive ? 'earth.100' : 'earth.300'}
+                  _hover={{
+                    textDecoration: 'none',
+                    color: 'earth.100',
+                  }}
+                  fontWeight={item.isActive ? 'bold' : 'normal'}
+                >
+                  {item.label}
+                </Link>
+              </React.Fragment>
+            ))}
+          </HStack>
         </Box>
-        <Box cursor="pointer">
-          <Link onClick={onOpen}>About this site</Link>
+        <Box>
+          <Link
+            as={NextLink}
+            href="#"
+            opacity={0.5}
+            _hover={{
+              textDecoration: 'none',
+              color: 'earth.100',
+            }}
+          >
+            <Icon w={6} h={6} as={FaSun} />
+          </Link>
         </Box>
       </Flex>
-      <Modal isOpen={isModalOpen} onClose={onClose} size="md" isCentered>
-        <ModalOverlay backdropFilter="blur(10px)" bg="blackAlpha.300" />
-        <ModalContent
-          bg="grisMetal.900"
-          border="1px"
-          borderColor="whiteAlpha.400"
-          backdropFilter="blur(10px)"
-          className="transform transition-all duration-300"
-        >
-          <ModalHeader className="text-earth-400 font-bold flex items-center gap-2">
-            <FaInfoCircle className="mr-2" />
-            About this site
-          </ModalHeader>
-          <ModalCloseButton color="earth.400" />
-          <ModalBody pb={6}>
-            <Text className="text-earth-300 text-md leading-relaxed">
-              This is a personal portfolio website. <br />
-              Built with Next.js, Chakra UI, and Tailwind CSS.
-              <br />
-              Designed in Figma. Code generated with Cursor. <br />
-              Source code:{' '}
-              <Link
-                href="https://github.com/anabeeella/portfolio"
-                target="_blank"
-                className="text-earth-400 underline"
-              >
-                GitHub
-              </Link>
-            </Text>
-          </ModalBody>
-        </ModalContent>
-      </Modal>
     </Box>
   );
 }

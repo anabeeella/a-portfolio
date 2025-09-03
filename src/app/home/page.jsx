@@ -55,10 +55,14 @@ export default function Home() {
             md: 'repeat(2, 1fr)',
             lg: 'repeat(3, 1fr)',
           }}
-          maxW="7xl"
+          w="full"
+          maxW={{
+            base: '100%',
+            lg: '5xl',
+            xl: '7xl',
+          }}
           gap={6}
           justifyContent="center"
-          w="full"
         >
           {filteredSections.map((section, index) => (
             <SectionCard

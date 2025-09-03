@@ -3,7 +3,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { usePathname } from 'next/navigation';
 import {
-  Text,
   Box,
   Link,
   Icon,
@@ -12,27 +11,19 @@ import {
   ModalContent,
   useDisclosure,
   VStack,
-  Center,
   useColorModeValue,
   Tooltip,
   useBreakpointValue,
 } from '@chakra-ui/react';
-import sections from '@/app/_config/sections.json';
 import { FaLaptopCode, FaAddressCard, FaComment } from 'react-icons/fa';
 import IDcard from '../ui/IDcard';
-import { useRouter } from 'next/navigation';
 import NotificationDialog from '../ui/NotificationDialog';
 import useSound from '@/app/_hooks/useSound';
 import FeedbackDialog from '../ui/FeedbackDialog';
 
 import notes from '@/app/_content/notes';
 
-const Location = ({ notifications = [], isNotificationsEnabled = false }) => {
-  const pathname = usePathname();
-  const router = useRouter();
-  const currentPage =
-    sections.sections.find(section => section.link === pathname) ||
-    sections.sections[0];
+const Location = ({ notifications = [] }) => {
   const { isOpen: isModalOpen, onOpen, onClose } = useDisclosure();
   const [isNotificationModalOpen, setIsNotificationModalOpen] = useState(false);
   const [isBellEnabled, setIsBellEnabled] = useState(false);
@@ -42,15 +33,14 @@ const Location = ({ notifications = [], isNotificationsEnabled = false }) => {
   const observerRef = useRef(null);
   const { play: playBell, load: loadBell } = useSound('/sounds/bell1.mp3');
   const isMobile = useBreakpointValue({ base: true, xl: false });
+  const pathname = usePathname();
 
   useEffect(() => {
     loadBell();
   }, [loadBell]);
 
   useEffect(() => {
-    // Get current section from pathname
-    const currentSection = pathname.split('/')[1] || 'home';
-    const sectionNotes = notes[currentSection] || [];
+    const sectionNotes = notes[pathname.split('/')[1]] || [];
 
     // Create intersection observer
     observerRef.current = new IntersectionObserver(
@@ -94,6 +84,12 @@ const Location = ({ notifications = [], isNotificationsEnabled = false }) => {
 
   const handleOpenModal = (e, type) => {
     e.preventDefault();
+
+    // Only allow ID modal to open when on /about page
+    if (type === 'id' && pathname !== '/about') {
+      return;
+    }
+
     if (type === 'id') {
       onOpen();
     } else if (type === 'bell' && isBellEnabled) {
@@ -105,87 +101,17 @@ const Location = ({ notifications = [], isNotificationsEnabled = false }) => {
     setIsFeedbackModalOpen(true);
   };
 
-  // Get the current subfolder and its title from the pathname
-  const getCurrentSubfolder = () => {
-    const pathParts = pathname.split('/');
-    if (pathParts.length > 2) {
-      const subfolder = pathParts[2];
-      // Find the parent section
-      const parentSection = sections.sections.find(
-        section => section.link === `/${pathParts[1]}`
-      );
-      return {
-        name: subfolder.charAt(0).toUpperCase() + subfolder.slice(1),
-        parent: parentSection?.title || '',
-      };
-    }
-    return null;
-  };
-
-  const currentSubfolder = getCurrentSubfolder();
-
   return (
     <Box
-      display={{ base: 'none', xl: 'flex' }}
-      justifyContent="space-between"
-      alignItems="center"
-      width="100%"
-      p={8}
+      hideBelow="lg"
       position="fixed"
-      left={0}
+      right={8}
       top="50%"
       transform="translateY(-50%)"
       zIndex={10}
       pointerEvents="none"
-      className="text-sm font-mono text-earth-400"
     >
-      <Box pointerEvents="auto">
-        {pathname === '/home' ? (
-          <>&gt; Control Center</>
-        ) : (
-          <>
-            <Link
-              onClick={() => router.push('/home')}
-              _hover={{ textDecoration: 'none', color: 'earth.300' }}
-              cursor="pointer"
-            >
-              &gt; Control Center
-            </Link>
-            {currentSubfolder ? (
-              <>
-                <Text p={2} color="earth.200">
-                  <Link
-                    onClick={() => router.push(`/${pathname.split('/')[1]}`)}
-                    _hover={{ textDecoration: 'none', color: 'earth.300' }}
-                    cursor="pointer"
-                  >
-                    &gt; {currentSubfolder.parent}
-                  </Link>
-                </Text>
-                <Text pl={4} color="earth.200">
-                  <Link
-                    onClick={() =>
-                      router.push(
-                        `/${pathname.split('/')[1]}/${pathname.split('/')[2]}`
-                      )
-                    }
-                    _hover={{ textDecoration: 'none', color: 'earth.300' }}
-                    cursor="pointer"
-                  >
-                    &gt; {currentSubfolder.name}
-                  </Link>
-                </Text>
-              </>
-            ) : (
-              <Text p={2} color="earth.300">
-                &gt; {currentPage.title}
-              </Text>
-            )}
-          </>
-        )}
-      </Box>
-
-      <VStack className="flex items-center" gap={8} pointerEvents="auto">
+      <VStack className="flex items-end" gap={8} pointerEvents="auto">
         <Tooltip
           bg="blackAlpha.300"
           color="earth.200"
