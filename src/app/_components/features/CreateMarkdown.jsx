@@ -1,8 +1,8 @@
-'use client'
+'use client';
 
-import React from "react";
-import ReactMarkdown from "react-markdown";
-import { Box } from "@chakra-ui/react";
+import React from 'react';
+import ReactMarkdown from 'react-markdown';
+import { Box } from '@chakra-ui/react';
 
 export default function MarkdownRenderer({ content }) {
   return (

@@ -3,7 +3,8 @@ const projects = [
     id: 1,
     date: '2023',
     name: 'Aldea Explorer',
-    description: 'Design of a web app for exploring the Aldea blockchain. It allows users to view the blockchain, search for transactions, blocks, packages, and more.',
+    description:
+      'Design of a web app for exploring the Aldea blockchain. It allows users to view the blockchain, search for transactions, blocks, packages, and more.',
     image: './images/dragon-repeller.png',
     role: 'Head of Design',
     tools: ['Figma', 'Adobe Suite', 'Tailwind'],
@@ -63,7 +64,8 @@ const projects = [
     id: 6,
     date: 'December 2024',
     name: 'ARchitect',
-    description: 'Augmented reality app for interior design and furniture placement. It allows users to design their interiors and see the impact of their choices.',
+    description:
+      'Augmented reality app for interior design and furniture placement. It allows users to design their interiors and see the impact of their choices.',
     image: './images/dragon-repeller.png',
     role: 'AR/VR Designer',
     tools: ['Unity', 'Blender', 'ARKit'],
@@ -82,7 +84,7 @@ const projects = [
     tags: '',
     client: null,
     isComingSoon: true,
-  }
+  },
 ];
 
 export default projects;

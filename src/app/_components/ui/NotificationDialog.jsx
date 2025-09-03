@@ -18,7 +18,9 @@ import Typewriter from './TypewriterText';
 
 const NotificationDialog = ({ isOpen, onClose }) => {
   const pathname = usePathname();
-  const { play: playNotification, load: loadNotification } = useSound('/sounds/notification.mp3');
+  const { play: playNotification, load: loadNotification } = useSound(
+    '/sounds/notification.mp3'
+  );
 
   useEffect(() => {
     loadNotification();
@@ -40,20 +42,29 @@ const NotificationDialog = ({ isOpen, onClose }) => {
   const currentSection = getCurrentSection();
   const sectionNotes = notes[currentSection] || [];
 
-  const formatDate = (dateString) => {
+  const formatDate = dateString => {
     const options = { year: 'numeric', month: 'short', day: 'numeric' };
     return new Date(dateString).toLocaleDateString('en-US', options);
   };
 
   return (
-    <Modal isOpen={isOpen} onClose={onClose} size="md" motionPreset="slideInRight">
-      <ModalOverlay border="none" backdropFilter="blur(10px)" bg="blackAlpha.300" />
-      <ModalContent 
+    <Modal
+      isOpen={isOpen}
+      onClose={onClose}
+      size="md"
+      motionPreset="slideInRight"
+    >
+      <ModalOverlay
+        border="none"
+        backdropFilter="blur(10px)"
+        bg="blackAlpha.300"
+      />
+      <ModalContent
         className="notes-container"
         position="absolute"
         right="2rem"
         top="50%"
-        transform="translateY(-50%)" 
+        transform="translateY(-50%)"
         border="1px solid"
         borderColor="earth.300"
         borderRadius="0"
@@ -69,16 +80,16 @@ const NotificationDialog = ({ isOpen, onClose }) => {
         </ModalHeader> */}
         <ModalBody className="inner-content">
           <VStack spacing={4} align="stretch" py={2}>
-              {sectionNotes.map((note) => (
-                <Box key={note.id}>
-                  <Typewriter
-                    text={note.content}
-                    loop={true}
-                    cursor={false}
-                    speed={30}
-                  />
-                </Box>
-              ))}
+            {sectionNotes.map(note => (
+              <Box key={note.id}>
+                <Typewriter
+                  text={note.content}
+                  loop={true}
+                  cursor={false}
+                  speed={30}
+                />
+              </Box>
+            ))}
           </VStack>
         </ModalBody>
       </ModalContent>
@@ -86,4 +97,4 @@ const NotificationDialog = ({ isOpen, onClose }) => {
   );
 };
 
-export default NotificationDialog; 
+export default NotificationDialog;

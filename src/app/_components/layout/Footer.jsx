@@ -1,5 +1,5 @@
-import { Text, Flex } from "@chakra-ui/react";
-import SocialIcons from "../ui/SocialIcons";
+import { Text, Flex } from '@chakra-ui/react';
+import SocialIcons from '../ui/SocialIcons';
 
 export default function Footer() {
   const getCurrentDate = () => {
@@ -22,11 +22,11 @@ export default function Footer() {
       gap={8}
       bgColor={{ base: 'grisMetal.900', md: 'transparent' }}
     >
-      <Text width='144px'>by @anabeeella</Text>
-      <Flex width='144px'justifyContent="center">
+      <Text width="144px">by @anabeeella</Text>
+      <Flex width="144px" justifyContent="center">
         <Text>{getCurrentDate()}</Text>
       </Flex>
-      <SocialIcons width='144px' size={16} color="earth.400" gap={4} /> 
+      <SocialIcons width="144px" size={16} color="earth.400" gap={4} />
     </Flex>
   );
 }

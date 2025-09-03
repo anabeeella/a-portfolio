@@ -13,7 +13,7 @@ export const colors = {
     900: '#121214',
   },
   earth: {
-    50: '#faf6f1',  // Muy claro, casi blanco
+    50: '#faf6f1', // Muy claro, casi blanco
     100: '#f5ede3', // Crema claro
     200: '#e6d5c3', // Beige claro
     300: '#d4bda3', // Beige medio

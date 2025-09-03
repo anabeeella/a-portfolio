@@ -58,7 +58,7 @@
           "title": "Resources",
           "icon": "FaBook",
           "link": "/resources"
-        }, 
+        },
         {
           "id": "#4.3",
           "description": "Collection of inspiring projects, designs, and creative works.",
@@ -85,6 +85,6 @@
       "icon": "FaEnvelope",
       "tags": ["Contact"],
       "link": "/contact"
-    } 
+    }
   ]
-} 
+}

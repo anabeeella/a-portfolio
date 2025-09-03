@@ -20,4 +20,4 @@ export default function TypewriterText({ text, onComplete, speed }) {
   }, [currentIndex, text, onComplete]);
 
   return <span className="font-mono">{displayedText}</span>;
-} 
+}

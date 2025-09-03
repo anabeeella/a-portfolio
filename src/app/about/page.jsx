@@ -22,7 +22,6 @@ export default function About() {
     sectionIntro.current?.scrollIntoView({ behavior: 'smooth' });
   };
 
-   
   const data = [
     { id: 1, image: '/images/about/about1.jpg', height: 800, title: 'Me' },
     { id: 2, image: '/images/about/about2.jpg', height: 400, title: 'Me' },
@@ -37,93 +36,96 @@ export default function About() {
   return (
     <>
       <Header />
-      <Location 
-        notifications={notifications}
-        isNotificationsEnabled={true}
-      />
+      <Location notifications={notifications} isNotificationsEnabled={true} />
       <Box className="max-w-7xl mx-auto">
-      <Flex
-        px={8}
-        mb={{ base: '6rem', md: '4rem' }}
-        height={{ base: 'auto', md: '90vh' }}
-        alignItems='center'
-        gap={8}
-        direction={{ base: 'column', md: 'row' }}
-        spacing={8}
-        width="100%"
-      >
-        <Box 
-          alignSelf="flex-end"
-          color="earth.100" 
-          textAlign="left"
-          width={{ base: '100%', md: '50%' }}
+        <Flex
+          px={8}
+          mb={{ base: '6rem', md: '4rem' }}
+          height={{ base: 'auto', md: '90vh' }}
+          alignItems="center"
+          gap={8}
+          direction={{ base: 'column', md: 'row' }}
+          spacing={8}
+          width="100%"
         >
-          <Heading as="h1" className="font-bold text-earth-300" mb={4}>
-            ID Archive
-          </Heading>
-          <Text className="text-lg" mb={8}>
-    Anabella Rizzi is a UX/UI designer with a strong background in graphic design and a decade of experience crafting visual systems, digital products, and experimental interfaces. She has taught design at FADU-UBA, prototyped in battlefields filled with stakeholders, and debugged emotions through carefully planned flows.
-    <br /><br />
-    She thrives in the trenches where strategy meets creativity, prefers clever design over complex ones, and firmly believes that the best tools are the ones that save time and headaches.
-    <br /><br />
-    Off duty? She's likely sketching ideas, crocheting tiny monsters, or organizing her Figma files like they were government files.
-          </Text>
-        </Box>
-        <Box 
-          position="relative"
-          onClick={scrollToSectionIntro} 
-          width={{ base: '100%', md: '40%' }}
-          display="flex"
-          flexDirection="column"
-          justifyContent="flex-start"
-          alignSelf="flex-start"
-        >
-          <Image 
-            src="/images/me.png" 
-            alt="About" 
-            width="100%"
-            height="100%"
-            objectFit="cover"
-            marginBottom={{ base: '0', lg: '2rem' }}
-          />
-          <Box 
-            position="absolute"
-            top={{ base: '-2.5%', md: '40%' }}
-            left={{ base: '5%', md: '-50%' }}
-            className="notes-container text-sm font-mono" 
-            color="earth.200"
+          <Box
+            alignSelf="flex-end"
+            color="earth.100"
+            textAlign="left"
+            width={{ base: '100%', md: '50%' }}
           >
-            <Box className="inner-content" 
-            px={4} 
-            py={2}  >
-              <TypewriterText
-                text="Yep, I'm breaking the grid again."
-                onComplete={() => setFirstTextComplete(true)}
-                speed={30}
-              />
-            </Box>
+            <Heading as="h1" className="font-bold text-earth-300" mb={4}>
+              ID Archive
+            </Heading>
+            <Text className="text-lg" mb={8}>
+              Anabella Rizzi is a UX/UI designer with a strong background in
+              graphic design and a decade of experience crafting visual systems,
+              digital products, and experimental interfaces. She has taught
+              design at FADU-UBA, prototyped in battlefields filled with
+              stakeholders, and debugged emotions through carefully planned
+              flows.
+              <br />
+              <br />
+              She thrives in the trenches where strategy meets creativity,
+              prefers clever design over complex ones, and firmly believes that
+              the best tools are the ones that save time and headaches.
+              <br />
+              <br />
+              Off duty? She's likely sketching ideas, crocheting tiny monsters,
+              or organizing her Figma files like they were government files.
+            </Text>
           </Box>
-          <Box 
-            position="absolute"
-            bottom={{ base: '5%', md: '10%' }}
-            right={{ base: '10%', md: '-20%' }}
-            className="notes-container text-sm font-mono" 
-            color="earth.200"
+          <Box
+            position="relative"
+            onClick={scrollToSectionIntro}
+            width={{ base: '100%', md: '40%' }}
+            display="flex"
+            flexDirection="column"
+            justifyContent="flex-start"
+            alignSelf="flex-start"
           >
-            <Box className="inner-content" 
-            px={4} 
-            py={2}  >
-              {firstTextComplete && (
+            <Image
+              src="/images/me.png"
+              alt="About"
+              width="100%"
+              height="100%"
+              objectFit="cover"
+              marginBottom={{ base: '0', lg: '2rem' }}
+            />
+            <Box
+              position="absolute"
+              top={{ base: '-2.5%', md: '40%' }}
+              left={{ base: '5%', md: '-50%' }}
+              className="notes-container text-sm font-mono"
+              color="earth.200"
+            >
+              <Box className="inner-content" px={4} py={2}>
                 <TypewriterText
-                  text="Relax, the responsive is ok."
+                  text="Yep, I'm breaking the grid again."
+                  onComplete={() => setFirstTextComplete(true)}
                   speed={30}
                 />
-              )}
+              </Box>
+            </Box>
+            <Box
+              position="absolute"
+              bottom={{ base: '5%', md: '10%' }}
+              right={{ base: '10%', md: '-20%' }}
+              className="notes-container text-sm font-mono"
+              color="earth.200"
+            >
+              <Box className="inner-content" px={4} py={2}>
+                {firstTextComplete && (
+                  <TypewriterText
+                    text="Relax, the responsive is ok."
+                    speed={30}
+                  />
+                )}
+              </Box>
             </Box>
           </Box>
-        </Box>
-      </Flex>
-      <main className="content-padding mx-auto max-w-5xl w-full">
+        </Flex>
+        <main className="content-padding mx-auto max-w-5xl w-full">
           {aboutContent.map((item, index) => (
             <Box key={index} p={4} mx="auto" mb={16}>
               <Heading as="h3" className="text-earth-300" fontSize="xl" mb={4}>
@@ -139,13 +141,13 @@ export default function About() {
             </Box>
           ))}
 
-          <Box ref={photosRef} py={40} mb={16} id="photos-grid" >
-          <Text className="text-earth-100 mb-8 text-center italic">
-              The best ideas don't always start on a whiteboard. Sometimes they start with yarn, ink, or fabric scraps.
+          <Box ref={photosRef} py={40} mb={16} id="photos-grid">
+            <Text className="text-earth-100 mb-8 text-center italic">
+              The best ideas don't always start on a whiteboard. Sometimes they
+              start with yarn, ink, or fabric scraps.
             </Text>
             <Masonry data={data} />
           </Box>
-
 
           <Box p={4} mx="auto" mb={16}>
             <Heading as="h3" className="text-earth-300" fontSize="xl" mb={4}>
@@ -157,7 +159,14 @@ export default function About() {
             <SocialIcons size={20} gap={4} />
           </Box>
 
-          <Box bg="whiteAlpha.100" borderRadius="md"className="text-earth-100 font-mono text-sm" p={8} mb={24} textAlign="center">
+          <Box
+            bg="whiteAlpha.100"
+            borderRadius="md"
+            className="text-earth-100 font-mono text-sm"
+            p={8}
+            mb={24}
+            textAlign="center"
+          >
             <TypewriterText text="This dossier will remain open until further notice." />
           </Box>
         </main>
@@ -165,4 +174,4 @@ export default function About() {
       <Footer />
     </>
   );
-} 
+}

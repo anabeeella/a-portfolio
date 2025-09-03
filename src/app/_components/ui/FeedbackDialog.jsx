@@ -9,7 +9,7 @@ import {
   ModalBody,
   ModalFooter,
   Button,
-    FormControl,
+  FormControl,
   Textarea,
   useToast,
   VStack,
@@ -30,9 +30,9 @@ export default function FeedbackDialog({ isOpen, onClose }) {
       // Aquí iría la lógica para enviar el feedback
       await new Promise(resolve => setTimeout(resolve, 1000)); // Simulación de envío
       toast({
-        title: "Feedback enviado",
-        description: "Gracias por tu feedback!",
-        status: "success",
+        title: 'Feedback enviado',
+        description: 'Gracias por tu feedback!',
+        status: 'success',
         duration: 3000,
         isClosable: true,
       });
@@ -40,9 +40,9 @@ export default function FeedbackDialog({ isOpen, onClose }) {
       onClose();
     } catch (error) {
       toast({
-        title: "Error",
-        description: "No se pudo enviar el feedback. Intenta de nuevo.",
-        status: "error",
+        title: 'Error',
+        description: 'No se pudo enviar el feedback. Intenta de nuevo.',
+        status: 'error',
         duration: 3000,
         isClosable: true,
       });
@@ -53,21 +53,22 @@ export default function FeedbackDialog({ isOpen, onClose }) {
 
   return (
     <Modal isOpen={isOpen} onClose={onClose} size="md">
-      <ModalOverlay backdropFilter="blur(10px)" bg="blackAlpha.300"/>
-      <ModalContent 
+      <ModalOverlay backdropFilter="blur(10px)" bg="blackAlpha.300" />
+      <ModalContent
         className="notes-container"
         border="1px solid"
         borderColor="earth.300"
         borderRadius="0"
       >
         <ModalHeader className="inner-content">
-          <VStack align="start" spacing={2} color="earth.200" >
+          <VStack align="start" spacing={2} color="earth.200">
             <Heading fontSize="2xl" fontFamily="mono">
-                <Icon as={FaComments} />
-                Feedback
+              <Icon as={FaComments} />
+              Feedback
             </Heading>
             <Text fontSize="sm" fontWeight="normal" fontFamily="mono">
-                Would you like to send me a feedback or a suggestion to improve the website? It'll be very helpful for me.
+              Would you like to send me a feedback or a suggestion to improve
+              the website? It'll be very helpful for me.
             </Text>
           </VStack>
         </ModalHeader>
@@ -83,7 +84,7 @@ export default function FeedbackDialog({ isOpen, onClose }) {
                   border: 'none',
                 }}
                 value={feedback}
-                onChange={(e) => {
+                onChange={e => {
                   setFeedback(e.target.value);
                   e.target.style.height = 'auto';
                   e.target.style.height = e.target.scrollHeight + 'px';
@@ -99,13 +100,9 @@ export default function FeedbackDialog({ isOpen, onClose }) {
           </VStack>
         </ModalBody>
         <ModalFooter className="inner-content">
-          <Button
-            variant="solid"
-          >
-            Enviar
-          </Button>
+          <Button variant="solid">Enviar</Button>
         </ModalFooter>
       </ModalContent>
     </Modal>
   );
-}  
+}

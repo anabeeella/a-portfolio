@@ -14,20 +14,20 @@ import {
 } from '@chakra-ui/react';
 import { FaGithub, FaPlay } from 'react-icons/fa';
 
-export default function GameCard({ 
-    id,
-    name,
-    date,
-    description,
-    image,
-    languages,
-    playLink,
-    githubLink,
-    tags,
-    isComingSoon,
+export default function GameCard({
+  id,
+  name,
+  date,
+  description,
+  image,
+  languages,
+  playLink,
+  githubLink,
+  tags,
+  isComingSoon,
 }) {
   return (
-    <Card 
+    <Card
       minWidth="300px"
       key={id}
       className="transform transition-all duration-300 bg-opacity-70"
@@ -37,15 +37,19 @@ export default function GameCard({
       display="flex"
       flexDirection="column"
       height="100%"
-      _hover={{ borderColor: "whiteAlpha.500" }}
+      _hover={{ borderColor: 'whiteAlpha.500' }}
     >
       <CardHeader borderBottom="1px" borderColor="whiteAlpha.300">
         <Flex justifyContent="space-between">
-          <Text fontFamily="mono" fontSize="sm" color="earth.500">{date}</Text>
-          <Text fontFamily="mono" fontSize="sm" color="earth.500">#{id}</Text>
+          <Text fontFamily="mono" fontSize="sm" color="earth.500">
+            {date}
+          </Text>
+          <Text fontFamily="mono" fontSize="sm" color="earth.500">
+            #{id}
+          </Text>
         </Flex>
-        <Heading 
-          as="h2" 
+        <Heading
+          as="h2"
           fontWeight="bold"
           color="earth.300"
           display="flex"
@@ -53,7 +57,7 @@ export default function GameCard({
           gap={2}
           mb={1}
           className="font-global"
-          fontSize={{ base: "2xl", md: "3xl" }}
+          fontSize={{ base: '2xl', md: '3xl' }}
         >
           {name}
         </Heading>
@@ -61,24 +65,24 @@ export default function GameCard({
           {languages}
         </Text>
       </CardHeader>
-      <CardBody display="flex" flexDirection="column" flex="1"> 
+      <CardBody display="flex" flexDirection="column" flex="1">
         {isComingSoon ? (
           <></>
-        ) : (     
+        ) : (
           <Box className="relative aspect-video mb-4 overflow-hidden rounded-lg">
-            <Image 
-              src={image} 
+            <Image
+              src={image}
               alt={name}
               className="w-full h-full object-cover"
             />
-          </Box>  
+          </Box>
         )}
         <Text className="text-earth-100 text-md leading-relaxed mb-4" flex="1">
           {description}
-        </Text>    
+        </Text>
         {tags && tags.length > 0 && (
-          <Box mb={4} display="flex" flexWrap='wrap' gap={2}>
-            {tags.map((tag) => (
+          <Box mb={4} display="flex" flexWrap="wrap" gap={2}>
+            {tags.map(tag => (
               <Text key={tag} fontFamily="mono" fontSize="xs" color="earth.400">
                 #{tag}
               </Text>
@@ -87,27 +91,27 @@ export default function GameCard({
         )}
         <Box mt="auto">
           {isComingSoon ? (
-            <></> 
-          ) : (     
+            <></>
+          ) : (
             <ButtonGroup mt="auto">
               {githubLink && (
-                <Button 
+                <Button
                   variant="outline"
                   className="bg-earth-300 hover:bg-earth-200 text-background"
                   onClick={() => window.open(githubLink, '_blank')}
                   size="sm"
-                  leftIcon={<FaGithub/>}
+                  leftIcon={<FaGithub />}
                 >
                   GitHub
                 </Button>
               )}
               {playLink && (
-                <Button 
+                <Button
                   variant="solid"
                   className="bg-earth-300 hover:bg-earth-200 text-background"
                   onClick={() => window.open(playLink, '_blank')}
                   size="sm"
-                  leftIcon={<FaPlay size={9} />}  
+                  leftIcon={<FaPlay size={9} />}
                 >
                   Play Now
                 </Button>

@@ -52,17 +52,23 @@ function Masonry({ data }) {
 
   const [heights, gridItems] = useMemo(() => {
     let heights = new Array(columns).fill(0);
-    let gridItems = data.map((child) => {
+    let gridItems = data.map(child => {
       const column = heights.indexOf(Math.min(...heights));
       const x = (width / columns) * column;
       const y = (heights[column] += child.height / 2) - child.height / 2;
-      return { ...child, x, y, width: width / columns, height: child.height / 2 };
+      return {
+        ...child,
+        x,
+        y,
+        width: width / columns,
+        height: child.height / 2,
+      };
     });
     return [heights, gridItems];
   }, [columns, data, width]);
 
   const transitions = useTransition(gridItems, {
-    keys: (item) => item.id,
+    keys: item => item.id,
     from: ({ x, y, width, height }) => ({ x, y, width, height, opacity: 0 }),
     enter: ({ x, y, width, height }) => ({ x, y, width, height, opacity: 1 }),
     update: ({ x, y, width, height }) => ({ x, y, width, height }),
@@ -71,7 +77,7 @@ function Masonry({ data }) {
     trail: 25,
   });
 
-  const handleImageClick = (item) => {
+  const handleImageClick = item => {
     setSelectedImage(item);
     onOpen();
   };
@@ -116,9 +122,9 @@ function Masonry({ data }) {
                   {item.title || ' - '}
                 </p>
               </div>
-              <img 
-                src={item.image} 
-                alt={item.title || 'Gallery image'} 
+              <img
+                src={item.image}
+                alt={item.title || 'Gallery image'}
                 className="hidden"
               />
             </div>
@@ -126,26 +132,26 @@ function Masonry({ data }) {
         ))}
       </div>
 
-      <Modal 
-        isOpen={isOpen} 
-        onClose={onClose} 
-        size="6xl" 
+      <Modal
+        isOpen={isOpen}
+        onClose={onClose}
+        size="6xl"
         isCentered
         motionPreset="slideInBottom"
       >
         <ModalOverlay backdropFilter="blur(8px)" bg="blackAlpha.800" />
-        <ModalContent 
-          bg="transparent" 
-          boxShadow="none" 
+        <ModalContent
+          bg="transparent"
+          boxShadow="none"
           position="relative"
           maxW="90vw"
           maxH="90vh"
         >
-          <ModalCloseButton 
-            color="white" 
-            position="absolute" 
-            right={2} 
-            top={2} 
+          <ModalCloseButton
+            color="white"
+            position="absolute"
+            right={2}
+            top={2}
             zIndex={2}
           />
           <ModalBody p={0} position="relative">
@@ -174,9 +180,9 @@ function Masonry({ data }) {
                 >
                   <p>{selectedImage.title || ' - '}</p>
                 </Box>
-                <img 
-                  src={selectedImage.image} 
-                  alt={selectedImage.title || 'Gallery image'} 
+                <img
+                  src={selectedImage.image}
+                  alt={selectedImage.title || 'Gallery image'}
                   className="hidden"
                 />
               </Box>

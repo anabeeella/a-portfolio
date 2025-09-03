@@ -5,10 +5,7 @@ import { Box } from '@chakra-ui/react';
 
 const InfiniteMarquee = ({ children, speed = 15 }) => {
   return (
-    <Box
-      className="relative overflow-hidden whitespace-nowrap"
-      width="100%"
-    >
+    <Box className="relative overflow-hidden whitespace-nowrap" width="100%">
       <Box
         className="inline-block"
         style={{
@@ -32,4 +29,4 @@ const InfiniteMarquee = ({ children, speed = 15 }) => {
   );
 };
 
-export default InfiniteMarquee; 
+export default InfiniteMarquee;

@@ -27,7 +27,7 @@ const theme = extendTheme({
       900: '#121214',
     },
     earth: {
-      50: '#faf6f1',  // Muy claro, casi blanco
+      50: '#faf6f1', // Muy claro, casi blanco
       100: '#f5ede3', // Crema claro
       200: '#e6d5c3', // Beige claro
       300: '#d4bda3', // Beige medio
@@ -67,7 +67,7 @@ const theme = extendTheme({
       },
     },
     Button: {
-      baseStyle: { 
+      baseStyle: {
         fontFamily: 'var(--font-global)',
         borderRadius: '0',
         _focusVisible: {
@@ -78,7 +78,7 @@ const theme = extendTheme({
         solid: {
           border: '.5px solid',
           borderColor: 'earth.300',
-          borderRadius: '0', 
+          borderRadius: '0',
           color: 'earth.900',
           bg: 'earth.300',
           _hover: {
@@ -129,4 +129,4 @@ const theme = extendTheme({
   },
 });
 
-export default theme; 
+export default theme;

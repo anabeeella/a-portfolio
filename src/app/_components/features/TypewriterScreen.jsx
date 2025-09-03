@@ -52,7 +52,9 @@ export default function TypewriterScreen({ content }) {
     if (currentIndex < content.length) {
       // Iniciar el sonido si es el primer carácter y no está muteado
       if (currentIndex === 0 && audioRef.current && !isMuted) {
-        audioRef.current.play().catch(error => console.log('Audio autoplay was prevented'));
+        audioRef.current
+          .play()
+          .catch(error => console.log('Audio autoplay was prevented'));
       }
 
       const timer = setTimeout(() => {
@@ -74,7 +76,7 @@ export default function TypewriterScreen({ content }) {
   // Autoscroll effect (medium speed)
   useEffect(() => {
     if (!hasStarted) return;
-    
+
     const container = scrollRef.current;
     if (!container) return;
     let animationFrame;
@@ -86,7 +88,10 @@ export default function TypewriterScreen({ content }) {
       const elapsed = timestamp - lastTimestamp;
       lastTimestamp = timestamp;
       // Only scroll if not at the bottom
-      if (container.scrollTop + container.clientHeight < container.scrollHeight) {
+      if (
+        container.scrollTop + container.clientHeight <
+        container.scrollHeight
+      ) {
         container.scrollTop = container.scrollTop + speed * elapsed;
         animationFrame = requestAnimationFrame(step);
       }
@@ -101,7 +106,7 @@ export default function TypewriterScreen({ content }) {
     if (scrollRef.current && !isCompleted) {
       scrollRef.current.scrollTo({
         top: scrollRef.current.scrollHeight,
-        behavior: 'smooth'
+        behavior: 'smooth',
       });
     }
   }, [displayedContent, isCompleted]);
@@ -130,7 +135,9 @@ export default function TypewriterScreen({ content }) {
   const handleToggleMute = () => {
     if (audioRef.current) {
       if (isMuted) {
-        audioRef.current.play().catch(error => console.log('Audio play failed'));
+        audioRef.current
+          .play()
+          .catch(error => console.log('Audio play failed'));
       } else {
         audioRef.current.pause();
       }
@@ -151,12 +158,16 @@ export default function TypewriterScreen({ content }) {
   return (
     <>
       {hasStarted && (
-        <Box className="flex justify-center items-center m-2" role="toolbar" aria-label="Audio controls">
+        <Box
+          className="flex justify-center items-center m-2"
+          role="toolbar"
+          aria-label="Audio controls"
+        >
           <IconButton
             variant="ghost"
             icon={<Icon as={isMuted ? FaVolumeMute : FaVolumeUp} />}
             onClick={handleToggleMute}
-            aria-label={isMuted ? "Unmute" : "Mute"}
+            aria-label={isMuted ? 'Unmute' : 'Mute'}
             aria-pressed={isMuted}
           />
         </Box>
@@ -169,17 +180,17 @@ export default function TypewriterScreen({ content }) {
       >
         {!hasStarted ? (
           <Box className="h-full flex items-center justify-center">
-            <Button 
-              variant="outline" 
+            <Button
+              variant="outline"
               onClick={handleStart}
               aria-label="Start the typewriter animation"
-              className='font-mono'
+              className="font-mono"
             >
               Open Archive
             </Button>
           </Box>
         ) : (
-          <Box 
+          <Box
             className="prose prose-invert font-mono prose-sm md:prose-md max-w-none px-4 py-10 md:p-8"
             aria-live="polite"
             aria-busy={!isCompleted}
@@ -191,8 +202,8 @@ export default function TypewriterScreen({ content }) {
       <Box className="mt-6" style={{ minHeight: 56 }}>
         <Box className="flex justify-center items-center">
           {!isCompleted && showSkip && (
-            <Button 
-              variant="ghost" 
+            <Button
+              variant="ghost"
               onClick={handleSkip}
               aria-label="Skip typewriter animation"
             >
@@ -203,8 +214,8 @@ export default function TypewriterScreen({ content }) {
         <Box>
           {isCompleted && (
             <Box className="flex justify-center items-center">
-              <Button 
-                variant="solid" 
+              <Button
+                variant="solid"
                 onClick={handleContinue}
                 aria-label="Continue to main portfolio"
               >
@@ -216,4 +227,4 @@ export default function TypewriterScreen({ content }) {
       </Box>
     </>
   );
-} 
+}

@@ -1,6 +1,7 @@
 ### Field Report: The Design Frontline
 
 ---
+
 **Date:** Today
 
 **Location:** LinkedIn
@@ -24,12 +25,12 @@ Because the problem was never the tool. The problem is that they don't know what
 
 I'm not a wizard. I'm not a ninja. I'm not "passionate about design" because that phrase means nothing anymore. I'm someone who understands how things work—and makes them work better. Whether it's a logo, an app, or a concept you didn't even know you needed until you saw it finished.
 
-So, if you've made it this far, I'm probably saving you from a battle you don't even know you're about to fight. 
+So, if you've made it this far, I'm probably saving you from a battle you don't even know you're about to fight.
 
 **But don't worry—I've already got it handled.**
 
 ---
 
-*Till next time*
+_Till next time_
 
-*Ani*
+_Ani_

@@ -2,7 +2,7 @@
 
 import { useRef, useCallback } from 'react';
 
-const useSound = (soundFile) => {
+const useSound = soundFile => {
   const audioRef = useRef(null);
 
   const play = useCallback(() => {
@@ -24,4 +24,4 @@ const useSound = (soundFile) => {
   return { play, load };
 };
 
-export default useSound; 
+export default useSound;
