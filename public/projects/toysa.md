@@ -25,6 +25,11 @@ The site had usability and clarity issues, which negatively impacted both new an
 
 I conducted a **heuristic evaluation** using **Nielsen’s 10 Heuristics** to identify usability issues across the platform.
 
+![Toysa Old Version 1](/images/projects/toysa-old-1.png)
+![Toysa Old Version 2](/images/projects/toysa-old-2.png)
+![Toysa Old Version 3](/images/projects/toysa-old-3.png)
+![Toysa Old Version 4](/images/projects/toysa-old-4.png)
+
 ### Key Insights:
 
 - **Products section** was the most problematic area:
@@ -50,11 +55,14 @@ I conducted a **heuristic evaluation** using **Nielsen’s 10 Heuristics** to id
 
 👉 After discussing with the company, we prioritized **improvements in the products section** since it was the core of the user flow.
 
----
+![Toysa Old Userflow](/images/projects/toysa-uf1.png)
+![Toysa New Userflow](/images/projects/toysa-uf2.png)
 
 ## 🛠 Design Approach
 
 The redesign aimed to simplify the experience and reduce friction points, while ensuring scalability for the catalog.
+
+![comparison between old and new version of Toysa's site](../images/projects/toysa-before-after.png)
 
 ### Key Priorities:
 
@@ -65,7 +73,10 @@ The redesign aimed to simplify the experience and reduce friction points, while 
 - 📢 Emphasize the term **“PRESUPUESTO” (quote)** across flows.
 - ✨ **Cleaner UI** → reduce information overload, improve readability.
 
----
+![new design of toysa product list](/images/projects/toysa-new1.png)
+![new design of toysa cart](/images/projects/toysa-new2.png)
+![new design of toysa checkout](/images/projects/toysa-new3.png)
+![new design of toysa dialog confirmation](/images/projects/toysa-new4.png)
 
 ## 📈 Results & Learnings
 
@@ -73,3 +84,9 @@ The redesign aimed to simplify the experience and reduce friction points, while 
 - Better **clarity of primary actions** → reduced user confusion.
 - A more **scalable and structured design system** for future iterations.
 - Key learning: **even in B2B contexts, clarity and minimalism drive adoption**.
+
+---
+
+## 🔗 View more:
+
+[Go to the Interactive Prototype](https://www.figma.com/proto/Y9YH0hgzLNGXdXKCKUpFUf/Toysa?node-id=2-2&p=f&t=dikI0bHYuLoN8gfG-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=2%3A2&show-proto-sidebar=1)

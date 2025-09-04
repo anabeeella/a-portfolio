@@ -3,7 +3,7 @@
 import React from 'react';
 
 export const dynamic = 'force-dynamic';
-import { Box, Heading, Text, Icon } from '@chakra-ui/react';
+import { Box, Heading, Text, Icon, Link } from '@chakra-ui/react';
 import Header from '../_components/layout/Header';
 import ProjectCard from '../_components/ui/ProjectCard';
 import projects from './projects';
@@ -46,6 +46,24 @@ export default function Projects() {
             to real-world solutions—highlighting my approach to digital design,
             user insight, and thoughtful development
           </Text>
+          <Text className="text-center" fontSize="md" mb={2} color="red.300">
+            This section is still under construction. More projects will be
+            added soon.
+          </Text>
+          <Link
+            href="https://anabeeella.myportfolio.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Text
+              className="text-center"
+              fontSize="md"
+              mb={4}
+              color="earth.300"
+            >
+              Check my previous portfolio
+            </Text>
+          </Link>
           <Icon
             cursor="pointer"
             display="flex"

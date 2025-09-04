@@ -124,10 +124,7 @@ export default function ProjectCard({
           {name}
         </Heading>
         {isComingSoon && (
-          <Text
-            className="text-sm font-mono leading-relaxed text-center"
-            color="earth.300"
-          >
+          <Text className="text-sm font-mono leading-relaxed" color="earth.300">
             Coming Soon
           </Text>
         )}

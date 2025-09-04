@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactMarkdown from 'react-markdown';
 import { useRouter } from 'next/navigation';
-import { Box, Heading, Text } from '@chakra-ui/react';
+import { Box, Heading, Text, Image, Flex, Wrap } from '@chakra-ui/react';
 
 export default function MarkdownRenderer({
   content,
@@ -112,6 +112,19 @@ export default function MarkdownRenderer({
             </Box>
           ),
           hr: () => <Box as="hr" borderColor="whiteAlpha.300" my={6} />,
+          img: ({ src, alt }) => (
+            <Image
+              src={src}
+              alt={alt}
+              maxW="100%"
+              height="auto"
+              borderRadius="md"
+              mb={6}
+              mt={6}
+              mx="auto"
+              display="inline-block"
+            />
+          ),
           a: ({ children, href }) => {
             const isInternalLink = href && href.startsWith('/');
 

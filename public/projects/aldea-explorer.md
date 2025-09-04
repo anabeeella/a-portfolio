@@ -48,6 +48,10 @@ From a **heuristics perspective**:
 
 The design process focused on creating a **clean, minimal interface** that prioritized core actions (search & explore), while layering additional technical information for advanced users.
 
+![ui of aldea packages](/images/projects/aldea-package.png)
+![ui of aldea transactions](/images/projects/aldea-transaction.png)
+![ui of aldea jigs](/images/projects/aldea-jig.png)
+
 ### Key Priorities:
 
 - 🔍 **Powerful search functionality** → by transaction ID, wallet address, or block hash.
@@ -67,6 +71,6 @@ The design process focused on creating a **clean, minimal interface** that prior
 
 ---
 
-### View more:
+## 🔗 View more:
 
-[Go to explorer](https://explorer.aldeacomputer.com/) or visit [My Aldea Brand Project](/projects/aldea-branding)
+[Go to Live Explorer](https://explorer.aldeacomputer.com/pkg/0000000000000000000000000000000000000000000000000000000000000000) and visit the [Aldea Brand Project](/projects/aldea-branding)

@@ -3,20 +3,7 @@
 import React from 'react';
 
 export const dynamic = 'force-dynamic';
-import {
-  Box,
-  Text,
-  Heading,
-  Grid,
-  Button,
-  Image,
-  Card,
-  CardBody,
-  CardHeader,
-  Flex,
-  ButtonGroup,
-  Tag,
-} from '@chakra-ui/react';
+import { Box, Text, Heading, Grid } from '@chakra-ui/react';
 import Header from '../_components/layout/Header';
 import Footer from '../_components/layout/Footer';
 import Location from '../_components/layout/Location';
