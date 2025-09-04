@@ -75,6 +75,7 @@ export default function Home() {
               onClick={() => router.push(section.link)}
               tooltip={section.tooltip}
               index={index}
+              isComingSoon={section.isComingSoon}
             />
           ))}
         </Grid>

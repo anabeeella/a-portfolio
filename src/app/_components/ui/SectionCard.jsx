@@ -24,21 +24,38 @@ const SectionCard = ({
   minWidth = '320px',
   className = '',
   index = 0,
+  isComingSoon = '',
 }) => {
+  const isDisabled = Boolean(isComingSoon);
+
+  const handleClick = e => {
+    if (isDisabled) {
+      e.preventDefault();
+      e.stopPropagation();
+      return;
+    }
+    if (onClick) {
+      onClick(e);
+    }
+  };
+
   return (
     <MotionCard
-      className={`transform transition-all duration-300 hover:shadow-xl bg-opacity-70 ${className}`}
+      className={`transform transition-all duration-300 ${!isDisabled ? 'hover:shadow-xl' : ''} bg-opacity-70 ${className} ${isDisabled ? 'opacity-10 cursor-not-allowed' : 'cursor-pointer'}`}
       bg="whiteAlpha.100"
       border="1px"
-      borderColor="whiteAlpha.300"
+      borderColor={isDisabled ? 'whiteAlpha.200' : 'whiteAlpha.300'}
       display="flex"
       flexDirection="column"
-      cursor="pointer"
       height="100%"
       minW={minWidth}
-      onClick={onClick}
-      title={tooltip}
-      _hover={{ bg: 'whiteAlpha.200', borderColor: 'whiteAlpha.400' }}
+      onClick={handleClick}
+      title={isDisabled ? 'Coming Soon' : tooltip}
+      _hover={
+        isDisabled
+          ? {}
+          : { bg: 'whiteAlpha.200', borderColor: 'whiteAlpha.400' }
+      }
       initial={{ opacity: 0 }}
       animate={{
         opacity: [0, 0, 1],
@@ -53,21 +70,34 @@ const SectionCard = ({
       <CardHeader borderBottom="1px" borderColor="whiteAlpha.300">
         <Flex
           justifyContent="space-between"
-          className="text-earth-500 font-mono text-sm leading-relaxed"
+          fontFamily="mono"
+          fontSize="sm"
+          lineHeight="relaxed"
+          color={isDisabled ? 'grisMetal.600' : 'earth.500'}
         >
           <Text>{id}</Text>
           <Text>{link}</Text>
         </Flex>
         <Heading
           as="h2"
-          className="text-earth-300 font-global font-bold flex items-center gap-2"
+          fontFamily="heading"
+          fontWeight="bold"
+          display="flex"
+          alignItems="center"
+          gap={2}
+          color={isDisabled ? 'grisMetal.600' : 'earth.300'}
           fontSize={{ base: 'xl', md: '3xl' }}
         >
           <span className="relative">{title}</span>
         </Heading>
       </CardHeader>
       <CardBody display="flex" flexDirection="column" flex="1">
-        <Text className="text-earth-50 text-md leading-relaxed mb-4">
+        <Text
+          fontSize="md"
+          lineHeight="relaxed"
+          mb={4}
+          color={isDisabled ? 'grisMetal.600' : 'earth.50'}
+        >
           {description}
         </Text>
         <Box mt="auto">
@@ -75,7 +105,10 @@ const SectionCard = ({
             {tags.map(tag => (
               <Text
                 key={tag}
-                className="text-earth-500 font-mono text-xs leading-relaxed"
+                color={isDisabled ? 'grisMetal.600' : 'earth.200'}
+                fontFamily="mono"
+                fontSize="xs"
+                lineHeight="relaxed"
               >
                 #{tag}
               </Text>

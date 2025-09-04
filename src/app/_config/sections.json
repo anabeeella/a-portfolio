@@ -7,7 +7,8 @@
       "description": "Welcome to the A-Portfolio. This is a collection of my projects, experiences, and thoughts.",
       "icon": "FaHome",
       "tags": "",
-      "link": "/home"
+      "link": "/home",
+      "isComingSoon": false
     },
     {
       "id": "#1",
@@ -16,7 +17,8 @@
       "description": "Completed operations and notable deployments. Strategic breakdowns of design missions, visual intelligence, and tactical outcomes.",
       "icon": "FaProjectDiagram",
       "tags": ["Projects", "CaseStudies"],
-      "link": "/projects"
+      "link": "/projects",
+      "isComingSoon": false
     },
     {
       "id": "#2",
@@ -25,7 +27,8 @@
       "description": "Career records, deployed skillsets, and tools of choice. All missions logged and categorized by timeline and complexity.",
       "icon": "FaLaptopCode",
       "tags": ["Experience", "Skills", "Tools"],
-      "link": "/experience"
+      "link": "/experience",
+      "isComingSoon": false
     },
     {
       "id": "#3",
@@ -34,7 +37,8 @@
       "description": "A sandbox for risky tactics, experimental prototypes, playful code, and UI chaos.",
       "icon": "FaGamepad",
       "tags": ["Games", "Experiments"],
-      "link": "/playground"
+      "link": "/playground",
+      "isComingSoon": false
     },
     {
       "id": "#4",
@@ -44,6 +48,7 @@
       "icon": "FaBook",
       "tags": ["Blog", "Resources"],
       "link": "/blog",
+      "isComingSoon": true,
       "subsections": [
         {
           "id": "#4.1",
@@ -75,7 +80,8 @@
       "description": "Identity dossier: profile data, unofficial details, and off-duty interests. Access Level: Cleared",
       "icon": "FaUser",
       "tags": ["About", "FunFacts", "Hobbies"],
-      "link": "/about"
+      "link": "/about",
+      "isComingSoon": false
     },
     {
       "id": "#6",
@@ -84,7 +90,8 @@
       "description": "Direct contact with the operator. Send a message, request a mission, or just say hi.",
       "icon": "FaEnvelope",
       "tags": ["Contact"],
-      "link": "/contact"
+      "link": "/contact",
+      "isComingSoon": false
     }
   ]
 }
