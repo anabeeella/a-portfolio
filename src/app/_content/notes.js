@@ -14,7 +14,7 @@ const notes = {
       section: 'games',
       date: '2024-03-20',
       content:
-        'Estos juegos fueron creados con el objetivo de aprender y practicar mis habilidades de lenguajes de programación',
+        'These games were created with the goal of learning and practicing my programming language skills',
     },
   ],
   about: [

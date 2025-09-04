@@ -174,6 +174,7 @@ export default function TypewriterScreen({ content }) {
       )}
       <Box
         ref={scrollRef}
+        w="full"
         className="relative h-[500px] overflow-y-auto shadow-xl notes-container"
         role="region"
         aria-label="Typewriter content"
@@ -191,6 +192,7 @@ export default function TypewriterScreen({ content }) {
           </Box>
         ) : (
           <Box
+            w="full"
             className="prose prose-invert font-mono prose-sm md:prose-md max-w-none px-4 py-10 md:p-8"
             aria-live="polite"
             aria-busy={!isCompleted}

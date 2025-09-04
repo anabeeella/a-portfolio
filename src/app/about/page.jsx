@@ -3,7 +3,15 @@
 import React, { useRef, useState } from 'react';
 
 export const dynamic = 'force-dynamic';
-import { Box, Heading, Text, Image, VStack, Flex } from '@chakra-ui/react';
+import {
+  Box,
+  Heading,
+  Text,
+  Image,
+  VStack,
+  Flex,
+  useColorModeValue,
+} from '@chakra-ui/react';
 import Header from '../_components/layout/Header';
 import Footer from '../_components/layout/Footer';
 import TypewriterText from '../_components/ui/TypewriterText';
@@ -17,6 +25,8 @@ export default function About() {
   const sectionIntro = useRef(null);
   const notifications = [];
   const [firstTextComplete, setFirstTextComplete] = useState(false);
+  const textColor = useColorModeValue('earth.600', 'earth.200');
+  const mutedColor = useColorModeValue('earth.500', 'earth.400');
 
   const scrollToSectionIntro = () => {
     sectionIntro.current?.scrollIntoView({ behavior: 'smooth' });
@@ -54,10 +64,17 @@ export default function About() {
             textAlign="left"
             width={{ base: '100%', md: '50%' }}
           >
-            <Heading as="h1" className="font-bold text-earth-300" mb={4}>
+            <Heading
+              as="h1"
+              fontSize="5xl"
+              fontWeight="bold"
+              color={textColor}
+              fontFamily="heading"
+              mb={4}
+            >
               ID Archive
             </Heading>
-            <Text className="text-lg" mb={8}>
+            <Text fontSize="lg" color={mutedColor} lineHeight="relaxed" mb={8}>
               Anabella Rizzi is a UX/UI designer with a strong background in
               graphic design and a decade of experience crafting visual systems,
               digital products, and experimental interfaces. She has taught
@@ -128,7 +145,14 @@ export default function About() {
         <main className="content-padding mx-auto max-w-5xl w-full">
           {aboutContent.map((item, index) => (
             <Box key={index} p={4} mx="auto" mb={16}>
-              <Heading as="h3" className="text-earth-300" fontSize="xl" mb={4}>
+              <Heading
+                as="h3"
+                color={textColor}
+                fontSize="xl"
+                mb={4}
+                fontFamily="heading"
+                fontWeight="semibold"
+              >
                 {item.title}
               </Heading>
               <VStack align="start" spacing={2}>
@@ -150,7 +174,14 @@ export default function About() {
           </Box>
 
           <Box p={4} mx="auto" mb={16}>
-            <Heading as="h3" className="text-earth-300" fontSize="xl" mb={4}>
+            <Heading
+              as="h3"
+              color={textColor}
+              fontSize="xl"
+              mb={4}
+              fontFamily="heading"
+              fontWeight="semibold"
+            >
               Last known coordinates
             </Heading>
             <Text className="text-earth-100 mb-4">

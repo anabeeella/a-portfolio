@@ -7,8 +7,8 @@ export default function RootPage() {
   const router = useRouter();
 
   useEffect(() => {
-    // Redirect to /home when the root page loads
-    router.push('/home');
+    // Redirect to /intro when the root page loads
+    router.push('/intro');
   }, [router]);
 
   return (

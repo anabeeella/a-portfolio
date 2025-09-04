@@ -3,7 +3,14 @@
 import React from 'react';
 
 export const dynamic = 'force-dynamic';
-import { Box, Heading, Text, Icon, Link } from '@chakra-ui/react';
+import {
+  Box,
+  Heading,
+  Text,
+  Icon,
+  Link,
+  useColorModeValue,
+} from '@chakra-ui/react';
 import Header from '../_components/layout/Header';
 import ProjectCard from '../_components/ui/ProjectCard';
 import projects from './projects';
@@ -13,6 +20,8 @@ import { FaChevronDown } from 'react-icons/fa';
 
 export default function Projects() {
   const notifications = [];
+  const textColor = useColorModeValue('earth.600', 'earth.200');
+  const mutedColor = useColorModeValue('earth.500', 'earth.400');
 
   // Function to determine item height based on index
   const getItemHeight = index => {
@@ -36,12 +45,20 @@ export default function Projects() {
               as="h1"
               fontSize="5xl"
               textAlign="center"
-              color="earth.300"
+              color={textColor}
+              fontFamily="heading"
+              fontWeight="bold"
             >
               Mission Briefings
             </Heading>
           </Box>
-          <Text className="mt-8 text-center" fontSize="lg" mb={8}>
+          <Text
+            className="mt-8 text-center"
+            fontSize="lg"
+            mb={8}
+            color={mutedColor}
+            lineHeight="relaxed"
+          >
             A selection of UX/UI and frontend projects—from playful experiments
             to real-world solutions—highlighting my approach to digital design,
             user insight, and thoughtful development
@@ -61,7 +78,7 @@ export default function Projects() {
               mb={4}
               color="earth.300"
             >
-              Check my previous portfolio
+              (Check my previous portfolio here)
             </Text>
           </Link>
           <Icon

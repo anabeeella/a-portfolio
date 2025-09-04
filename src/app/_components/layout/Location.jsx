@@ -169,16 +169,16 @@ const Location = ({ notifications = [] }) => {
         <Tooltip
           bg="blackAlpha.300"
           color="earth.200"
-          label="Send a feedback to the developer"
+          label="Feedback temporarily disabled"
           placement="right"
         >
           <Link
-            onClick={handleOpenFeedbackModal}
-            cursor="pointer"
-            opacity={1}
+            onClick={e => e.preventDefault()}
+            cursor="not-allowed"
+            opacity={0.3}
             _hover={{
               textDecoration: 'none',
-              color: hoverColor,
+              color: 'inherit',
             }}
           >
             <Icon w={6} h={6} as={FaComment} />
