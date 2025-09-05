@@ -36,12 +36,13 @@ export default function Home() {
       <Location />
       <main className="content-padding max-w-4xl md:max-w-7xl w-full mx-auto">
         <Heading as="h1" className="hidden">
-          Welcome to Control Center
+          Welcome to My Portfolio
         </Heading>
         <Box
           className="flex justify-between items-center pb-4 px-2 font-mono"
           fontSize="sm"
           color="earth.300"
+          mt={{ base: '100px', md: '0' }}
         >
           <Text className="leading-relaxed">{getCurrentDate()}</Text>
           <Text gap={2} className="flex items-center leading-relaxed">

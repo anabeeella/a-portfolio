@@ -33,9 +33,13 @@ export default function Projects() {
     <>
       <Header />
       <Location notifications={notifications} isNotificationsEnabled={true} />
-      <main className="content-padding max-w-7xl w-full mx-auto">
+      <main
+        className="content-padding max-w-7xl w-full mx-auto"
+        style={{ marginBottom: '120px' }}
+      >
         <Box className="section-intro center max-w-2xl mx-auto">
           <Box
+            id="project-disclaimer"
             className="p-4 rounded-lg shadow-lg"
             p={4}
             borderRadius="lg"
@@ -60,10 +64,10 @@ export default function Projects() {
             lineHeight="relaxed"
           >
             A selection of UX/UI and frontend projects—from playful experiments
-            to real-world solutions—highlighting my approach to digital design,
-            user insight, and thoughtful development
+            to real-world solutions—highlighting Anabella's approach to digital
+            design, user insight, and thoughtful development
           </Text>
-          <Text className="text-center" fontSize="md" mb={2} color="red.300">
+          {/* <Text className="text-center" fontSize="md" mb={2} color="red.300">
             This section is still under construction. More projects will be
             added soon.
           </Text>
@@ -80,7 +84,7 @@ export default function Projects() {
             >
               (Check my previous portfolio here)
             </Text>
-          </Link>
+          </Link> */}
           <Icon
             cursor="pointer"
             display="flex"

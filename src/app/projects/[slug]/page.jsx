@@ -75,14 +75,17 @@ export default function ProjectDetail() {
       <Header />
       <Location notifications={notifications} isNotificationsEnabled={true} />
 
-      <main className="content-padding max-w-7xl w-full mx-auto">
-        {/* Back Button */}
+      <main
+        className="content-padding max-w-7xl w-full mx-auto"
+        style={{ marginBottom: '120px' }}
+      >
         <Box mb={8}>
           <Button
             variant="ghost"
             color="earth.300"
             _hover={{ bg: 'whiteAlpha.100' }}
             onClick={handleBackClick}
+            mt={{ base: '100px', md: '0' }}
           >
             ← Back to Projects
           </Button>

@@ -40,8 +40,8 @@ export default function Contact() {
     {
       icon: FaLinkedin,
       label: 'LinkedIn',
-      value: 'linkedin.com/in/anabeeella',
-      href: 'https://linkedin.com/in/anabeeella',
+      value: 'linkedin.com/in/anabella-rizzi/',
+      href: 'https://www.linkedin.com/in/anabella-rizzi/',
     },
     {
       icon: FaGithub,
@@ -68,11 +68,14 @@ export default function Contact() {
       />
       <Header />
       <Location />
-      <main className="content-padding max-w-4xl w-full mx-auto">
-        <Container maxW="container.md" py={16}>
+      <main
+        className="content-padding max-w-4xl w-full mx-auto"
+        style={{ marginBottom: '120px' }}
+      >
+        <Container maxW="container.md" py={16} id="contact">
           <VStack spacing={12} align="stretch">
             {/* Header */}
-            <VStack spacing={6} align="center" textAlign="center">
+            <VStack spacing={6} align="center" textAlign="center" py={8}>
               <Heading
                 as="h1"
                 fontSize={{ base: '4xl', md: '5xl' }}
@@ -88,9 +91,12 @@ export default function Contact() {
                 maxW="2xl"
                 lineHeight="relaxed"
               >
-                Ready to collaborate? Let's discuss your next project or just
-                say hello. I'm always interested in new opportunities and
-                meaningful conversations.
+                Anabella is currently deployed on the design frontline —
+                crafting systems, testing strategies, and pushing pixels into
+                formation. If you’re looking for a collaborator to join your
+                mission, send a signal. The comms are open for new projects,
+                unexpected alliances, or simply a hello from another soldier in
+                the field.
               </Text>
             </VStack>
 
@@ -98,16 +104,6 @@ export default function Contact() {
 
             {/* Contact Methods */}
             <VStack spacing={8} align="stretch">
-              <Heading
-                as="h2"
-                fontSize="2xl"
-                fontWeight="semibold"
-                color={textColor}
-                textAlign="center"
-              >
-                Get in Touch
-              </Heading>
-
               <VStack spacing={4} align="stretch">
                 {contactInfo.map((contact, index) => (
                   <Box

@@ -157,3 +157,15 @@ body {
   border-radius: 8px;
   box-shadow: none;
 }
+
+/* Ensure main content doesn't get covered by fixed footer */
+main {
+  margin-bottom: 120px; /* Adjust based on footer height */
+}
+
+/* Responsive footer spacing */
+@media (max-width: 768px) {
+  main {
+    margin-bottom: 100px; /* Smaller margin on mobile */
+  }
+}

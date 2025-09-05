@@ -18,7 +18,7 @@ import {
 import { FaLaptopCode, FaAddressCard, FaComment } from 'react-icons/fa';
 import IDcard from '../ui/IDcard';
 import NotificationDialog from '../ui/NotificationDialog';
-import useSound from '@/app/_hooks/useSound';
+import useSound from '@/hooks/useSound';
 import FeedbackDialog from '../ui/FeedbackDialog';
 
 import notes from '@/app/_content/notes';

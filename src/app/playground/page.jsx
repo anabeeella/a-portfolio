@@ -19,7 +19,10 @@ export default function Playground() {
     <>
       <Header />
       <Location notifications={notifications} isNotificationsEnabled={true} />
-      <main className="content-padding max-w-5xl w-full mx-auto">
+      <main
+        className="content-padding max-w-5xl w-full mx-auto"
+        style={{ marginBottom: '120px' }}
+      >
         <Box className="section-intro center max-w-2xl mx-auto">
           <Box
             className="border-2 border-whiteAlpha-300 p-4 rounded-lg shadow-lg"

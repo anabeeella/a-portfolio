@@ -11,7 +11,7 @@ import {
   VStack,
   Box,
 } from '@chakra-ui/react';
-import useSound from '@/app/_hooks/useSound';
+import useSound from '@/hooks/useSound';
 import notes from '@/app/_content/notes';
 import { usePathname } from 'next/navigation';
 import Typewriter from './TypewriterText';
@@ -69,15 +69,17 @@ const NotificationDialog = ({ isOpen, onClose }) => {
         borderColor="earth.300"
         borderRadius="0"
       >
-        {/* <ModalHeader className="inner-content" marginBottom="3px" >
+        <ModalHeader className="inner-content" marginBottom="3px">
           <Text className="uppercase" fontFamily="mono" fontSize="lg">
-            {sectionNotes.length > 0 ? `${sectionNotes[0].section} Note` : 'No Notes Available'}
+            {sectionNotes.length > 0
+              ? `${sectionNotes[0].section} Note`
+              : 'No Notes Available'}
           </Text>
           <Text fontSize="xs" fontFamily="mono">
             Author: Anabella Rizzi <br></br>
             Date: {new Date().toLocaleDateString()}
           </Text>
-        </ModalHeader> */}
+        </ModalHeader>
         <ModalBody className="inner-content">
           <VStack spacing={4} align="stretch" py={2}>
             {sectionNotes.map(note => (

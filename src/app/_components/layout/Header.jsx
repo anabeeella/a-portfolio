@@ -53,6 +53,7 @@ export default function Header() {
       top={0}
       zIndex={1000}
       fontSize="sm"
+      bgColor={{ base: 'grisMetal.900', md: 'transparent' }}
     >
       <Flex h={24} alignItems={'center'} justifyContent={'space-between'}>
         <Box cursor="pointer">

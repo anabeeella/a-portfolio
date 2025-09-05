@@ -122,7 +122,7 @@ export default function GameCard({
               mt="auto"
               w="full"
               flexDirection={{ base: 'column', md: 'row' }}
-              spacing={2}
+              spacing={{ base: 0, md: 2 }}
             >
               {githubLink && (
                 <Button

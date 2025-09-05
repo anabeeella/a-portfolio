@@ -26,8 +26,11 @@ export default function Experience() {
     <>
       <Header />
       <Location notifications={notifications} isNotificationsEnabled={true} />
-      <main className="content-padding max-w-5xl w-full mx-auto">
-        <Box className="center max-w-2xl mx-auto" mb={8}>
+      <main
+        className="content-padding max-w-5xl w-full mx-auto"
+        style={{ marginBottom: '120px' }}
+      >
+        <Box className="section-intro center max-w-2xl mx-auto" mb={8}>
           <Box className="p-4" p={4} borderRadius="lg">
             <Heading
               as="h1"
@@ -39,21 +42,21 @@ export default function Experience() {
             >
               Field Ops
             </Heading>
+            <Text
+              fontSize="lg"
+              color={mutedColor}
+              textAlign="center"
+              maxW="2xl"
+              mx="auto"
+              lineHeight="relaxed"
+              mb={8}
+            >
+              Career records, deployed skillsets, and tools of choice. All
+              missions logged and categorized by timeline and complexity.
+            </Text>
           </Box>
         </Box>
         <Box className="max-w-7xl mx-auto" mb={8}>
-          <Text
-            fontSize="lg"
-            color={mutedColor}
-            textAlign="center"
-            maxW="2xl"
-            mx="auto"
-            lineHeight="relaxed"
-            mb={8}
-          >
-            Career records, deployed skillsets, and tools of choice. All
-            missions logged and categorized by timeline and complexity.
-          </Text>
           <Heading
             as="h2"
             color={textColor}
@@ -67,7 +70,11 @@ export default function Experience() {
         <Box className="max-w-7xl" mb={10}>
           {experience.map(experience => (
             <Box key={experience.id} mb={16}>
-              <HStack spacing={2} justifyContent="space-between">
+              <Box
+                display="flex"
+                justifyContent="space-between"
+                flexDirection={{ base: 'column', lg: 'row' }}
+              >
                 <Heading as="h2" color="earth.300" fontSize="2xl" mb={2}>
                   {experience.name} at {experience.company}
                 </Heading>
@@ -78,10 +85,12 @@ export default function Experience() {
                   display="flex"
                   alignItems="center"
                   gap={2}
+                  width={{ base: 'fit-content', lg: 'auto' }}
+                  mb={{ base: 2, lg: 0 }}
                 >
                   <FaIndustry /> {experience.industry}
                 </Badge>
-              </HStack>
+              </Box>
               <Text color="earth.300" mb={2}>
                 {experience.date} · {experience.location} ·{' '}
                 {experience.modalities.join(', ')}
@@ -103,7 +112,11 @@ export default function Experience() {
         <Box className="max-w-7xl mx-auto">
           {teaching.map(teaching => (
             <Box key={teaching.id} mb={8}>
-              <HStack spacing={2} justifyContent="space-between">
+              <Box
+                display="flex"
+                justifyContent="space-between"
+                flexDirection={{ base: 'column', lg: 'row' }}
+              >
                 <Heading as="h2" color="earth.300" fontSize="2xl" mb={2}>
                   {teaching.name} at {teaching.company}
                 </Heading>
@@ -114,10 +127,12 @@ export default function Experience() {
                   display="flex"
                   alignItems="center"
                   gap={2}
+                  width={{ base: 'fit-content', lg: 'auto' }}
+                  mb={{ base: 2, lg: 0 }}
                 >
                   <FaIndustry /> {teaching.industry}
                 </Badge>
-              </HStack>
+              </Box>
               <Text color="earth.300" mb={2}>
                 {teaching.date} · {teaching.location} ·{' '}
                 {teaching.modalities.join(', ')}

@@ -100,7 +100,6 @@ export default function ProjectCard({
                 variant="subtle"
                 px={3}
                 py={1}
-                fontSize="sm"
                 fontFamily="mono"
                 key={tag}
               >

@@ -32,7 +32,7 @@ export default function Footer() {
       <Box
         cursor="pointer"
         onClick={onOpen}
-        opacity={1}
+        opacity={{ base: 0, md: 1 }}
         _hover={{
           textDecoration: 'none',
           color: 'earth.100',
