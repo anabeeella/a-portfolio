@@ -20,13 +20,13 @@ const SectionCard = ({
   description,
   tags = [],
   onClick,
-  tooltip,
   minWidth = '320px',
   className = '',
   index = 0,
   isComingSoon = '',
+  variant = 'default',
 }) => {
-  const isDisabled = Boolean(isComingSoon);
+  const isDisabled = Boolean(isComingSoon) || variant === 'disabled';
 
   const handleClick = e => {
     if (isDisabled) {
@@ -39,22 +39,61 @@ const SectionCard = ({
     }
   };
 
+  // Estilos específicos por variante
+  const getVariantStyles = () => {
+    switch (variant) {
+      case 'hover':
+        return {
+          bg: 'whiteAlpha.200',
+          borderColor: 'whiteAlpha.400',
+          transform: 'translateY(-2px)',
+          boxShadow: '0 10px 25px rgba(0, 0, 0, 0.1)',
+        };
+      case 'focus':
+        return {
+          bg: 'whiteAlpha.100',
+          borderColor: 'earth.300',
+          boxShadow: '0 0 0 2px rgba(255, 200, 89, 0.2)',
+          outline: 'none',
+        };
+      case 'disabled':
+        return {
+          bg: 'whiteAlpha.50',
+          borderColor: 'whiteAlpha.200',
+          opacity: 0.3,
+          cursor: 'not-allowed',
+        };
+      default:
+        return {
+          bg: 'whiteAlpha.100',
+          borderColor: 'whiteAlpha.300',
+        };
+    }
+  };
+
+  const variantStyles = getVariantStyles();
+
   return (
     <MotionCard
       className={`transform transition-all duration-300 ${!isDisabled ? 'hover:shadow-xl' : ''} bg-opacity-70 ${className} ${isDisabled ? 'opacity-10 cursor-not-allowed' : 'cursor-pointer'}`}
-      bg="whiteAlpha.100"
+      bg={variantStyles.bg}
       border="1px"
-      borderColor={isDisabled ? 'whiteAlpha.200' : 'whiteAlpha.300'}
+      borderColor={variantStyles.borderColor}
       display="flex"
       flexDirection="column"
       height="100%"
       minW={minWidth}
       onClick={handleClick}
-      title={isDisabled ? 'Coming Soon' : tooltip}
+      title={isDisabled ? 'Coming Soon' : title}
       _hover={
-        isDisabled
+        isDisabled || variant === 'disabled'
           ? {}
           : { bg: 'whiteAlpha.200', borderColor: 'whiteAlpha.400' }
+      }
+      _focus={
+        variant === 'focus'
+          ? { boxShadow: '0 0 0 2px rgba(255, 200, 89, 0.2)' }
+          : {}
       }
       initial={{ opacity: 0 }}
       animate={{
@@ -102,17 +141,18 @@ const SectionCard = ({
         </Text>
         <Box mt="auto">
           <HStack spacing={2} wrap="wrap">
-            {tags.map(tag => (
-              <Text
-                key={tag}
-                color={isDisabled ? 'grisMetal.600' : 'earth.200'}
-                fontFamily="mono"
-                fontSize="xs"
-                lineHeight="relaxed"
-              >
-                #{tag}
-              </Text>
-            ))}
+            {tags &&
+              tags.map(tag => (
+                <Text
+                  key={tag}
+                  color={isDisabled ? 'grisMetal.600' : 'earth.200'}
+                  fontFamily="mono"
+                  fontSize="xs"
+                  lineHeight="relaxed"
+                >
+                  #{tag}
+                </Text>
+              ))}
           </HStack>
         </Box>
       </CardBody>

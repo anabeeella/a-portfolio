@@ -74,7 +74,6 @@ export default function Home() {
               description={section.description}
               tags={section.tags}
               onClick={() => router.push(section.link)}
-              tooltip={section.tooltip}
               index={index}
               isComingSoon={section.isComingSoon}
             />

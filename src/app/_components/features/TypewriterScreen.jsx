@@ -184,7 +184,7 @@ export default function TypewriterScreen({ content }) {
             <Button
               variant="outline"
               onClick={handleStart}
-              aria-label="Start the typewriter animation"
+              aria-label="Stop the typewriter animation"
               className="font-mono"
             >
               Open Archive
