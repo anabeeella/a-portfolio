@@ -37,7 +37,7 @@ export const Default: Story = {
     className: 'section-card',
     minWidth: '320',
     index: 0,
-    isComingSoon: false,
+    isComingSoon: 'false',
     tags: ['tag1', 'tag2'],
   },
 };

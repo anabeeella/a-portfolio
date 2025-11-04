@@ -75,9 +75,11 @@ export default function ProjectDetail() {
       <Header />
       <Location notifications={notifications} isNotificationsEnabled={true} />
 
-      <main
+      <Box
+        as="main"
         className="content-padding max-w-7xl w-full mx-auto"
-        style={{ marginBottom: '120px' }}
+        mb="120px"
+        pt={{ base: '120px', md: '120px' }}
       >
         <Box mb={8}>
           <Button
@@ -85,7 +87,6 @@ export default function ProjectDetail() {
             color="earth.300"
             _hover={{ bg: 'whiteAlpha.100' }}
             onClick={handleBackClick}
-            mt={{ base: '100px', md: '0' }}
           >
             ← Back to Projects
           </Button>
@@ -269,7 +270,7 @@ export default function ProjectDetail() {
             )}
           </VStack>
         </Container>
-      </main>
+      </Box>
 
       <Footer />
     </>
